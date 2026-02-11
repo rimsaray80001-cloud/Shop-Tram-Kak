@@ -1,209 +1,81 @@
-<!DOCTYPE html>
-<html lang="km">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ស្មាតសប អេចប្រេស ត្រាំកក់ - Shop System</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!-- Header -->
-    <header class="header">
-        <div class="header-content">
-            <h1 class="header-title">ស្មាតសប អេចប្រេស ត្រាំកក់</h1>
-            <div class="header-info">
-                <span class="date-time" id="datetime"></span>
+<div class="sub-sidebar">
+    <h3>Settings</h3>
+    <ul>
+        <li>
+            <a href="#" data-toggle="modal" data-target="#employeeModal">Employee</a>
+        </li>
+        <li>
+            <a href="#" data-toggle="modal" data-target="#itemsModal">Items</a>
+        </li>
+        <li>
+            <a href="#" data-toggle="modal" data-target="#kpiSettingModal">KPI Setting</a>
+        </li>
+    </ul>
+</div>
+
+<!-- Modals -->
+<div class="modal fade" id="employeeModal" tabindex="-1" role="dialog" aria-labelledby="employeeModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="employeeModalLabel">Employee Form</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <!-- Add your form fields here -->
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
-    </header>
-
-    <!-- Container with Sidebar and Main Content -->
-    <div class="container">
-        <!-- Left Sidebar Menu -->
-        <aside class="sidebar">
-            <nav>
-                <ul class="menu-list">
-                    <li class="menu-item active" data-page="overview">
-                        <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                        </svg>
-                        <span>Overview</span>
-                    </li>
-                    <li class="menu-item" data-page="settings">
-                        <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <circle cx="12" cy="12" r="3"></circle>
-                            <path d="M12 1v6m0 6v6m8.66-12l-5.2 3m-5.92 3l-5.2 3m0-12l5.2 3m5.92 3l5.2 3"></path>
-                        </svg>
-                        <span>Settings</span>
-                    </li>
-                </ul>
-            </nav>
-        </aside>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Overview Page -->
-            <div id="overview-page" class="page active">
-                <div class="page-header">
-                    <h2>Dashboard Overview</h2>
-                    <p>Transaction summary and quick stats</p>
-                </div>
-
-                <!-- Stats Cards -->
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-icon sales">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-                                <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                            </svg>
-                        </div>
-                        <div class="stat-info">
-                            <p class="stat-label">Today's Sales</p>
-                            <h3 class="stat-value" id="todaySales">$0.00</h3>
-                        </div>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-icon transactions">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <rect x="2" y="5" width="20" height="14" rx="2"></rect>
-                                <path d="M2 10h20"></path>
-                            </svg>
-                        </div>
-                        <div class="stat-info">
-                            <p class="stat-label">Transactions</p>
-                            <h3 class="stat-value" id="transactionCount">0</h3>
-                        </div>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-icon customers">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="9" cy="7" r="4"></circle>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87m-4-12a4 4 0 0 1 0 7.75"></path>
-                            </svg>
-                        </div>
-                        <div class="stat-info">
-                            <p class="stat-label">Customers</p>
-                            <h3 class="stat-value" id="customerCount">0</h3>
-                        </div>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-icon revenue">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                            </svg>
-                        </div>
-                        <div class="stat-info">
-                            <p class="stat-label">Total Revenue</p>
-                            <h3 class="stat-value" id="totalRevenue">$0.00</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Recent Transactions -->
-                <div class="section">
-                    <div class="section-header">
-                        <h3>Recent Transactions</h3>
-                        <button class="btn-primary">View All</button>
-                    </div>
-                    <div class="table-container">
-                        <table class="transaction-table">
-                            <thead>
-                                <tr>
-                                    <th>Transaction ID</th>
-                                    <th>Date & Time</th>
-                                    <th>Customer</th>
-                                    <th>Amount</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody id="transactionTableBody">
-                                <tr class="empty-state">
-                                    <td colspan="5">No transactions yet</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Settings Page -->
-            <div id="settings-page" class="page">
-                <div class="page-header">
-                    <h2>Settings</h2>
-                    <p>Configure your shop system</p>
-                </div>
-
-                <div class="settings-container">
-                    <!-- Shop Information -->
-                    <div class="settings-section">
-                        <h3 class="settings-title">Shop Information</h3>
-                        <div class="form-group">
-                            <label for="shopName">Shop Name</label>
-                            <input type="text" id="shopName" class="form-input" value="ស្មាតសប អេចប្រេស ត្រាំកក់">
-                        </div>
-                        <div class="form-group">
-                            <label for="shopAddress">Address</label>
-                            <input type="text" id="shopAddress" class="form-input" placeholder="Enter shop address">
-                        </div>
-                        <div class="form-group">
-                            <label for="shopPhone">Phone Number</label>
-                            <input type="tel" id="shopPhone" class="form-input" placeholder="Enter phone number">
-                        </div>
-                        <div class="form-group">
-                            <label for="shopEmail">Email</label>
-                            <input type="email" id="shopEmail" class="form-input" placeholder="Enter email address">
-                        </div>
-                    </div>
-
-                    <!-- Currency Settings -->
-                    <div class="settings-section">
-                        <h3 class="settings-title">Currency Settings</h3>
-                        <div class="form-group">
-                            <label for="currency">Currency</label>
-                            <select id="currency" class="form-input">
-                                <option value="USD">USD ($)</option>
-                                <option value="KHR">KHR (៛)</option>
-                                <option value="THB">THB (฿)</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Display Settings -->
-                    <div class="settings-section">
-                        <h3 class="settings-title">Display Settings</h3>
-                        <div class="form-group">
-                            <label for="language">Language</label>
-                            <select id="language" class="form-input">
-                                <option value="km">ភាសាខ្មែរ</option>
-                                <option value="en">English</option>
-                            </select>
-                        </div>
-                        <div class="form-group checkbox-group">
-                            <input type="checkbox" id="darkMode">
-                            <label for="darkMode">Enable Dark Mode</label>
-                        </div>
-                    </div>
-
-                    <!-- Save Button -->
-                    <div class="settings-actions">
-                        <button class="btn-primary" id="saveSettings">Save Settings</button>
-                        <button class="btn-secondary" id="resetSettings">Reset to Default</button>
-                    </div>
-                </div>
-            </div>
-        </main>
     </div>
+</div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2026 ស្មាតសប អេចប្រេស ត្រាំកក់. All rights reserved.</p>
-    </footer>
+<div class="modal fade" id="itemsModal" tabindex="-1" role="dialog" aria-labelledby="itemsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="itemsModalLabel">Items Form</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <!-- Add your form fields here -->
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <script src="script.js"></script>
-</body>
-</html>
+<div class="modal fade" id="kpiSettingModal" tabindex="-1" role="dialog" aria-labelledby="kpiSettingModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="kpiSettingModalLabel">KPI Setting Form</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <!-- Add your form fields here -->
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
