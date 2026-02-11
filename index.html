@@ -12,40 +12,52 @@
     </header>
     <div class="container">
         <aside class="sidebar">
-            <ul>
-                <li><a href="#overview"><img src="overview-icon.svg" alt="Overview"> Overview</a></li>
-                <li><a href="#settings"><img src="settings-icon.svg" alt="Settings"> Settings</a></li>
-            </ul>
+            <nav>
+                <ul>
+                    <li><i class="icon-overview"></i> Overview</li>
+                    <li><i class="icon-settings"></i> Settings</li>
+                </ul>
+            </nav>
         </aside>
         <main class="content">
-            <section id="overview">
-                <h2>Overview</h2>
-                <div class="stats">
-                    <div class="stat-card">Total Sales: $XXXX</div>
-                    <div class="stat-card">Total Transactions: XXXX</div>
-                </div>
-                <table>
+            <section class="overview">
+                <div class="stat-card">Today's Sales</div>
+                <div class="stat-card">Transactions</div>
+                <div class="stat-card">Customers</div>
+                <div class="stat-card">Total Revenue</div>
+                <table class="recent-transactions">
                     <thead>
                         <tr>
                             <th>Date</th>
                             <th>Transaction ID</th>
                             <th>Amount</th>
-                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>YYYY-MM-DD</td>
-                            <td>TXN-XXXX</td>
-                            <td>$XXX</td>
-                            <td>Success</td>
+                            <td>2026-02-10</td>
+                            <td>TX123456</td>
+                            <td>$100.00</td>
+                        </tr>
+                        <tr>
+                            <td>2026-02-09</td>
+                            <td>TX123455</td>
+                            <td>$150.00</td>
                         </tr>
                     </tbody>
                 </table>
             </section>
-            <section id="settings">
-                <h2>Settings</h2>
-                <p>Settings content goes here.</p>
+            <section class="settings">
+                <h2>Shop Information</h2>
+                <form>
+                    <label for="shop-name">Shop Name</label>
+                    <input type="text" id="shop-name" name="shop-name"><br>
+                    <label for="currency">Currency</label>
+                    <input type="text" id="currency" name="currency"><br>
+                    <label for="display-settings">Display Settings</label>
+                    <input type="text" id="display-settings" name="display-settings"><br>
+                    <input type="submit" value="Save Settings">
+                </form>
             </section>
         </main>
     </div>
