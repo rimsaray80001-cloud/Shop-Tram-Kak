@@ -1,16 +1,7 @@
 .sidebar {
-  background-color: #21B55C;
+    background-color: #21B55C;
 }
 
-.sidebar:hover {
-  background-color: #1a9448;
-}
-
-:root {
-  --primary-color: #21B55C;
-  --secondary-color: #1a9448;
-}
-
-header {
-  background: linear-gradient(135deg, #21B55C, #1a9448);
+.header {
+    background-color: #21B55C;
 }
